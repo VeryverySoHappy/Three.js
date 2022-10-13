@@ -1,23 +1,26 @@
-/*
-방법1
-import { hello1 } from './hello.js' ;
-// 모듈일 경우 현재 페이지는 ./를 붙여줘야됌
-import { hello2 } from './hello.js'
-*/
+import * as THREE from './three.module.js';
+      
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-/*
-import {hello1, hello2 } from './hello.js'
-{} 안에 여러개 작성해주기
-*/
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
 
+const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
 
-/*
-import * as hello from './hello.js';
-hello라는 이름으로 * (모두 다 갖고오기)
-'./hello.js'에서
-*/
+camera.position.z = 5;
 
-import hello1 from './hello.js'
-// default를 이용해서 hello1을 기본 값으로 설정해줬기 때문에 {}를 쓰면 안 됌
+function animate() {
+  requestAnimationFrame( animate );
 
-hello1();
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+
+  renderer.render( scene, camera );
+};
+
+animate();
