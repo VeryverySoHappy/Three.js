@@ -1,4 +1,5 @@
-export function hello1() {
+export default function hello1() {
+  // 기본 값으로 hello1을 설정해줌
   console.log('Hello 1!');
 }
 
