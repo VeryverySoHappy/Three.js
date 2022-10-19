@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress",
+    // 서비스할 파일을 빌드할 때 사용
     "start": "webpack serve --progress"
+    // 웹 서버를 구동해서 개발할 때는 start
+    // 실행될 때 명령어
   },
   "keywords": [],
   "author": "",
